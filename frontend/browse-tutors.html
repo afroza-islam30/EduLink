@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EduLink | Browse Tutors</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="common.js"></script>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-left">
+      <div class="logo-circle">E</div>
+      <div class="nav-title">EduLink</div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="post-request.html">Post Tuition Request</a>
+      <a href="browse-tutors.html">Search & Browse Tutors</a>
+      <a href="review-applications.html">Review Applications</a>
+      <a href="dashboard.html" class="nav-cta">Guardian Dashboard</a>
+    </div>
+  </div>
+
+  <div class="page-container">
+    <h2 class="section-title">Search & Browse Tutors</h2>
+
+    <div class="card" style="margin-bottom:16px;">
+      <div class="form-group" style="display:flex;gap:8px;align-items:flex-end;">
+        <div style="flex:1;">
+          <label>Subject</label>
+          <input type="text" id="filterSubject" placeholder="e.g. Math" />
+        </div>
+        <div style="flex:1;">
+          <label>Location</label>
+          <input type="text" id="filterLocation" placeholder="e.g. Mirpur" />
+        </div>
+        <button id="searchBtn" class="btn-primary">Search</button>
+      </div>
+    </div>
+
+    <div id="tutorContainer" class="card-grid">
+      <!-- Tutor cards dynamically inserted -->
+    </div>
+    <p id="tutorMessage" class="text-muted" style="margin-top:12px;"></p>
+  </div>
+
+  <div class="footer">
+    © 2025 EduLink Tutoring Platform · Guardian Portal
+  </div>
+
+  <script>
+    const tutorContainer = document.getElementById("tutorContainer");
+    const tutorMessage = document.getElementById("tutorMessage");
+    const searchBtn = document.getElementById("searchBtn");
+
+    async function loadTutors() {
+      tutorContainer.innerHTML = "";
+      tutorMessage.textContent = "Loading tutors...";
+
+      const subject = document.getElementById("filterSubject").value.trim();
+      const location = document.getElementById("filterLocation").value.trim();
+
+      const params = new URLSearchParams();
+      if (subject) params.append("subject", subject);
+      if (location) params.append("location", location);
+
+      try {
+        const res = await fetch(`${API_BASE}/tutors?${params.toString()}`);
+        const data = await res.json();
+
+        if (!data.length) {
+          tutorMessage.textContent = "No tutors found for this search.";
+          return;
+        }
+
+        tutorMessage.textContent = "";
+        data.forEach(t => {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:4px;">
+              ${t.name}
+            </h3>
+            <p class="text-muted" style="margin-bottom:4px;">
+              Subjects: ${t.subjects.join(", ")}
+            </p>
+            <p class="text-muted" style="margin-bottom:4px;">
+              Classes: ${t.classes.join(", ")}
+            </p>
+            <p class="text-muted" style="margin-bottom:4px;">
+              Location: ${t.location}
+            </p>
+            <p class="text-muted" style="margin-bottom:4px;">
+              Expected Salary: ${t.expectedSalary}
+            </p>
+            <p class="text-muted" style="margin-bottom:8px;">
+              Rating: ⭐ ${t.rating}
+            </p>
+            <p style="font-size:13px;margin-bottom:8px;">${t.bio}</p>
+            <button class="btn-secondary">Contact (demo)</button>
+          `;
+          tutorContainer.appendChild(card);
+        });
+      } catch (err) {
+        console.error(err);
+        tutorMessage.textContent = "Unable to load tutors.";
+      }
+    }
+
+    searchBtn.addEventListener("click", loadTutors);
+    window.addEventListener("load", loadTutors);
+  </script>
+</body>
+</html>
