@@ -1,10 +1,10 @@
-# Tuition Media Web Application
+# EduLink
 
 A platform connecting Teachers and Guardians for Tuition Opportunities
 
 ### Overview
 
-Tuition Media is a web-based platform where:
+EduLink is a web-based platform where:
 
 Teachers can register, log in, browse tuition jobs, filter by location/date, and apply for tuitions.
 
