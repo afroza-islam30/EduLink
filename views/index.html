@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EduLink – Tuition Media</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo-badge">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div>
+          <div class="logo-text-main">EDULINK</div>
+          <div class="logo-text-sub">Smart Tuition Media</div>
+        </div>
+      </div>
+
+      <div class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#roles">For Tutors & Guardians</a>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn-nav-outline" onclick="location.href='login.html'">
+          <i class="fa-regular fa-circle-user"></i>
+          Login
+        </button>
+        <button class="btn-nav-primary" onclick="location.href='register.html'">
+          <i class="fa-solid fa-user-plus"></i>
+          Join now
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- HERO -->
+      <section class="section grid-2">
+        <div>
+          <span class="badge-pill">
+            <i class="fa-solid fa-bolt"></i>
+            100% free to get started
+          </span>
+
+          <h1 class="hero-title">
+            Find the
+            <span class="hero-highlight">right tutor</span>
+            for every learner.
+          </h1>
+
+          <p class="hero-subtitle">
+            EduLink connects passionate tutors with guardians in your city. Post tuition,
+            apply to jobs, and manage everything from a simple dashboard.
+          </p>
+
+          <div style="display:flex; gap:0.7rem;">
+            <button class="btn-primary" onclick="location.href='register.html'">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i>
+              Get started in 2 minutes
+            </button>
+            <button class="btn-ghost" onclick="location.href='login.html'">
+              <i class="fa-regular fa-circle-user"></i>
+              I already have an account
+            </button>
+          </div>
+
+          <div class="hero-meta">
+            <small><i class="fa-solid fa-location-dot"></i> Focused on your local city</small>
+            <small><i class="fa-solid fa-shield-heart"></i> Verified email & phone login</small>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-label">Active Tutors</div>
+              <div class="stat-value">250+</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Tuitions Posted</div>
+              <div class="stat-value">480+</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Average Match Time</div>
+              <div class="stat-value">24 hrs</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <h3 style="margin-bottom:0.8rem;">Login directly</h3>
+            <p class="text-muted" style="margin-bottom:1rem;">
+              Quick links for existing users.
+            </p>
+            <div class="grid-2" style="gap:0.8rem;">
+              <button class="btn-primary" style="justify-content:center;" onclick="location.href='login.html'">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                Tutor Login
+              </button>
+              <button class="btn-primary" style="justify-content:center; background:linear-gradient(135deg,#22c55e,#16a34a);" onclick="location.href='login.html'">
+                <i class="fa-solid fa-people-roof"></i>
+                Guardian Login
+              </button>
+            </div>
+            <p class="text-muted" style="margin-top:1rem;">
+              New here? <a href="register.html">Create your EduLink account</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="section" id="how-it-works">
+        <h2 style="font-size:1.3rem; margin-bottom:1rem;">How EduLink works</h2>
+        <div class="grid-3">
+          <div class="card">
+            <div class="badge-pill" style="margin-bottom:0.7rem;">
+              <i class="fa-solid fa-user-plus"></i> Step 1
+            </div>
+            <h3 style="margin-bottom:0.4rem;">Create your account</h3>
+            <p class="text-muted">
+              Register as a tutor or guardian with basic details like name, email and phone.
+            </p>
+          </div>
+          <div class="card">
+            <div class="badge-pill" style="margin-bottom:0.7rem;">
+              <i class="fa-solid fa-list-check"></i> Step 2
+            </div>
+            <h3 style="margin-bottom:0.4rem;">Login to your dashboard</h3>
+            <p class="text-muted">
+              Tutors see their tutor dashboard. Guardians see their guardian dashboard.
+            </p>
+          </div>
+          <div class="card">
+            <div class="badge-pill" style="margin-bottom:0.7rem;">
+              <i class="fa-solid fa-link"></i> Step 3
+            </div>
+            <h3 style="margin-bottom:0.4rem;">Connect & manage</h3>
+            <p class="text-muted">
+              Use your dashboard to stay organised as you grow your tutoring or learning journey.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROLES -->
+      <section class="section" id="roles">
+        <h2 style="font-size:1.3rem; margin-bottom:1rem;">Designed for both tutors & guardians</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="badge-pill" style="margin-bottom:0.7rem;">
+              <i class="fa-solid fa-chalkboard-user"></i> For Tutors
+            </div>
+            <h3 style="margin-bottom:0.4rem;">Build your tutoring profile</h3>
+            <p class="text-muted" style="margin-bottom:0.6rem;">
+              Create a tutor account, log in, and access your personalised tutor dashboard.
+            </p>
+          </div>
+          <div class="card">
+            <div class="badge-pill" style="margin-bottom:0.7rem; background:#ecfdf5; color:#15803d;">
+              <i class="fa-solid fa-people-line"></i> For Guardians
+            </div>
+            <h3 style="margin-bottom:0.4rem;">Stay in control of learning</h3>
+            <p class="text-muted" style="margin-bottom:0.6rem;">
+              Register as a guardian, then use your guardian dashboard to manage your tutor
+              connections over time.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -8,6 +8,8 @@ const userSchema = new mongoose.Schema(
     passwordHash: { type: String, required: true },
     role: { type: String, enum: ['tutor', 'guardian'], required: true },
 
+    resetPasswordToken: { type: String, default: null },
+    resetPasswordExpires: { type: Date, default: null },
     // Tutor fields
     subjectExpertise: String,
     experienceLevel: String,

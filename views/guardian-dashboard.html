@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Guardian Dashboard – EduLink</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-left">
+        <div class="logo-badge" style="background:radial-gradient(circle at 20% 20%,#22c55e,#16a34a);">
+          <i class="fa-solid fa-people-roof"></i>
+        </div>
+        <div>
+          <div class="logo-text-main">EDULINK</div>
+          <div class="logo-text-sub">Guardian dashboard</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn-nav-outline" onclick="location.href='index.html'">
+          <i class="fa-solid fa-house"></i>
+          Home
+        </button>
+        <button class="btn-nav-primary" id="logout-link">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          Logout
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="dashboard-shell">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <div class="sidebar-header">
+            <div class="avatar-circle" id="guardian-avatar-initials" style="background:linear-gradient(135deg,#22c55e,#3b82f6);">
+              <i class="fa-solid fa-user-group"></i>
+            </div>
+            <div>
+              <div class="sidebar-name" id="guardian-name">Guardian Name</div>
+              <div class="sidebar-role">Guardian</div>
+            </div>
+          </div>
+
+          <div class="sidebar-info">
+            <div><i class="fa-regular fa-envelope"></i> <span id="guardian-email"></span></div>
+            <div><i class="fa-solid fa-phone"></i> <span id="guardian-phone"></span></div>
+          </div>
+
+          <ul class="sidebar-menu">
+            <li>
+              <button class="active">
+                <i class="fa-solid fa-gauge"></i>
+                Overview
+              </button>
+            </li>
+            <li>
+              <button disabled>
+                <i class="fa-solid fa-child"></i>
+                Students (placeholder)
+              </button>
+            </li>
+            <li>
+              <button disabled>
+                <i class="fa-solid fa-user-tie"></i>
+                Tutors (placeholder)
+              </button>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <section class="dashboard-main">
+          <div class="dashboard-title-row">
+            <div>
+              <h1>Guardian Dashboard</h1>
+              <span id="guardian-welcome"></span>
+            </div>
+            <div class="badge-pill" style="background:#ecfdf5; color:#15803d;">
+              <i class="fa-solid fa-circle-dot"></i>
+              Active guardian
+            </div>
+          </div>
+
+          <div class="dashboard-stats">
+            <div class="dashboard-stat-card">
+              <div class="dashboard-stat-label">Children learning</div>
+              <div class="dashboard-stat-value">1</div>
+            </div>
+            <div class="dashboard-stat-card">
+              <div class="dashboard-stat-label">Account age</div>
+              <div class="dashboard-stat-value">New</div>
+            </div>
+            <div class="dashboard-stat-card">
+              <div class="dashboard-stat-label">Role</div>
+              <div class="dashboard-stat-value">Guardian</div>
+            </div>
+          </div>
+
+          <h2 style="font-size:1rem; margin-bottom:0.5rem;">Recent activity</h2>
+          <div class="notification-list" id="guardian-notifications">
+            <!-- Filled by JS with dummy data -->
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="js/guardianDashboard.js"></script>
+  </body>
+</html>
