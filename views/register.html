@@ -4,61 +4,146 @@
     <meta charset="UTF-8" />
     <title>Register – EduLink</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <header class="header">
-      <div class="header-title">EduLink – Register</div>
-      <nav class="header-nav">
-        <a href="index.html">Home</a>
-        <a href="login.html">Login</a>
-      </nav>
+      <div class="header-left">
+        <div class="logo-badge">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div>
+          <div class="logo-text-main">EDULINK</div>
+          <div class="logo-text-sub">Account registration</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn-nav-outline" onclick="location.href='index.html'">
+          <i class="fa-solid fa-house"></i>
+          Home
+        </button>
+        <button class="btn-nav-primary" onclick="location.href='login.html'">
+          <i class="fa-regular fa-circle-user"></i>
+          Login
+        </button>
+      </div>
     </header>
 
     <main class="container">
-      <div class="card" style="max-width: 480px; margin: 0 auto;">
-        <h1 class="page-title">Create an Account</h1>
-
-        <form id="register-form">
-          <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" id="fullName" required />
+      <section class="section grid-2">
+        <!-- LEFT PANEL -->
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+          <div
+            class="card"
+            style="
+              background: radial-gradient(circle at top left, #3b82f6 0, #6366f1 40%, #14b8a6 100%);
+              color: white;
+            "
+          >
+            <div class="badge-pill" style="background: rgba(15,23,42,0.3); color:#e0f2fe;">
+              <i class="fa-solid fa-sparkles"></i>
+              New to EduLink?
+            </div>
+            <h2 style="margin-top:0.8rem; margin-bottom:0.4rem;">Create your free account</h2>
+            <p style="font-size:0.9rem; opacity:0.9;">
+              Choose whether you are a <strong>tutor</strong> or a <strong>guardian</strong>. You
+              can always update some details later from your profile page.
+            </p>
+            <ul style="margin-top:0.8rem; font-size:0.85rem; opacity:0.92; list-style:none;">
+              <li><i class="fa-solid fa-circle-check"></i> Secure email & password login</li>
+              <li><i class="fa-solid fa-circle-check"></i> Separate dashboards for tutors/guardians</li>
+              <li><i class="fa-solid fa-circle-check"></i> Designed for tuition media in your city</li>
+            </ul>
           </div>
 
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="email" required />
+          <div class="card">
+            <p class="text-muted">
+              Already have an account?
+              <a href="login.html">Login here</a>.
+            </p>
           </div>
+        </div>
 
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="text" id="phone" required />
-          </div>
-
-          <div class="form-group">
-            <label>Password</label>
-            <input type="password" id="password" required />
-          </div>
-
-          <div class="form-group">
-            <label>Confirm Password</label>
-            <input type="password" id="confirmPassword" required />
-          </div>
-
-          <div class="form-group">
-            <label>Account Type</label>
-            <select id="role" required>
-              <option value="">Select Role</option>
-              <option value="tutor">Tutor</option>
-              <option value="guardian">Guardian</option>
-            </select>
-          </div>
-
-          <button class="btn-primary" type="submit">Register</button>
-          <p class="text-muted">
-            Already have an account? <a href="login.html">Login here</a>.
+        <!-- RIGHT PANEL: FORM -->
+        <div class="card form-card">
+          <h1 class="page-title" style="margin-bottom:0.3rem;">Sign up</h1>
+          <p class="text-muted" style="margin-bottom:1rem;">
+            Fill in your basic details to start using EduLink.
           </p>
-        </form>
-      </div>
+
+          <!-- Role toggle -->
+          <div class="toggle-pill">
+            <button type="button" id="toggle-tutor" class="active">
+              <i class="fa-solid fa-chalkboard-user"></i> Tutor
+            </button>
+            <button type="button" id="toggle-guardian">
+              <i class="fa-solid fa-people-roof"></i> Guardian
+            </button>
+          </div>
+
+          <form id="register-form">
+            <input type="hidden" id="role" value="tutor" />
+
+            <div class="form-group">
+              <label>Full name</label>
+              <div class="input-wrapper">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" id="fullName" placeholder="e.g. Safin Hasan" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <div class="input-wrapper">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" id="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Phone</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-phone"></i>
+                <input type="text" id="phone" placeholder="+8801XXXXXXXXX" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Password</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password" placeholder="Minimum 6 characters" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Confirm password</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="confirmPassword" placeholder="Re-type password" required />
+              </div>
+            </div>
+
+            <!-- (Note: no extra backend fields for now; keep it simple) -->
+
+            <button class="btn-primary" type="submit" style="width:100%; justify-content:center;">
+              <i class="fa-solid fa-user-plus"></i>
+              Create account
+            </button>
+
+            <p class="text-muted" style="margin-top:0.7rem; text-align:center;">
+              By creating an account, you agree to our basic usage guidelines.
+            </p>
+          </form>
+        </div>
+      </section>
     </main>
 
     <script src="js/auth.js"></script>

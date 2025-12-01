@@ -1,6 +1,25 @@
 const API_BASE = '/api';
 
-// ---------------- REGISTER ----------------
+/* ===== ROLE TOGGLE ON REGISTRATION ===== */
+const toggleTutor = document.getElementById('toggle-tutor');
+const toggleGuardian = document.getElementById('toggle-guardian');
+const roleInput = document.getElementById('role');
+
+if (toggleTutor && toggleGuardian && roleInput) {
+  toggleTutor.addEventListener('click', () => {
+    roleInput.value = 'tutor';
+    toggleTutor.classList.add('active');
+    toggleGuardian.classList.remove('active');
+  });
+
+  toggleGuardian.addEventListener('click', () => {
+    roleInput.value = 'guardian';
+    toggleGuardian.classList.add('active');
+    toggleTutor.classList.remove('active');
+  });
+}
+
+/* ===== REGISTER ===== */
 const registerForm = document.getElementById('register-form');
 
 if (registerForm) {
@@ -27,23 +46,21 @@ if (registerForm) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-
       const data = await res.json();
       if (!data.success) {
         alert(data.message || 'Registration failed');
         return;
       }
-
-      alert('Registration successful! Please login.');
+      alert('Registration successful! Please log in.');
       window.location.href = 'login.html';
     } catch (err) {
       console.error(err);
-      alert('Something went wrong');
+      alert('Something went wrong. Please try again.');
     }
   });
 }
 
-// ---------------- LOGIN ----------------
+/* ===== LOGIN ===== */
 const loginForm = document.getElementById('login-form');
 
 if (loginForm) {
@@ -59,14 +76,13 @@ if (loginForm) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
-
       const data = await res.json();
+
       if (!data.success) {
         alert(data.message || 'Login failed');
         return;
       }
 
-      // Save token & role
       localStorage.setItem('token', data.token);
       localStorage.setItem('role', data.user.role);
 
@@ -77,7 +93,7 @@ if (loginForm) {
       }
     } catch (err) {
       console.error(err);
-      alert('Something went wrong');
+      alert('Something went wrong. Please try again.');
     }
   });
 }
