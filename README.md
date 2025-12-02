@@ -102,22 +102,18 @@ Database (MongoDB / SQL)<br>
 - Views (public/): Static HTML & CSS pages.
 
 ## Project Structure
-tuition-media/<br>
+EduLink/<br>
 │<br>
 ├── server.js<br>
 ├── package.json<br>
 │<br>
 ├── src/<br>
-│   ├── config/<br>
 │   ├── models/<br>
 │   ├── controllers/<br>
 │   ├── services/<br>
-│   ├── routes/<br>
-│   ├── middlewares/<br>
-│   ├── validators/<br>
-│   └── utils/<br>
+│
 │<br>
-├── public/<br>
+├── views/<br>
 │   ├── index.html<br>
 │   ├── login.html<br>
 │   ├── register.html<br>
