@@ -3,6 +3,7 @@
 const dashboardService = require('../services/dashboardService');
 const authService = require('../services/authService');
 
+// ===== TUTOR DASHBOARD =====
 async function tutorDashboard(req, res) {
   const authUser = authService.getUserFromRequest(req);
 
@@ -15,13 +16,14 @@ async function tutorDashboard(req, res) {
 
   try {
     const data = await dashboardService.getTutorDashboardData(authUser.userId);
-    return res.json({ success: true, ...data });
+    return res.json({ success: true, data });   // <-- FIXED
   } catch (err) {
     console.error('tutorDashboard error:', err.message);
-    return res.status(400).json({ success: false, message: err.message });
+    return res.status(500).json({ success: false, message: 'Server error' });
   }
 }
 
+// ===== GUARDIAN DASHBOARD =====
 async function guardianDashboard(req, res) {
   const authUser = authService.getUserFromRequest(req);
 
@@ -34,10 +36,10 @@ async function guardianDashboard(req, res) {
 
   try {
     const data = await dashboardService.getGuardianDashboardData(authUser.userId);
-    return res.json({ success: true, ...data });
+    return res.json({ success: true, data });   // <-- FIXED
   } catch (err) {
     console.error('guardianDashboard error:', err.message);
-    return res.status(400).json({ success: false, message: err.message });
+    return res.status(500).json({ success: false, message: 'Server error' });
   }
 }
 

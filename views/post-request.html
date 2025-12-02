@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Post Tuition Request – EduLink</title>
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f8ff;
+    }
+    .layout {
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: #fff;
+      height: 100vh;
+      padding: 25px 20px;
+      border-right: 1px solid #e5e8f1;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 35px;
+    }
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #1e90ff, #12d8e5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 20px;
+    }
+    .logo-text {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1e2a3b;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      margin-bottom: 8px;
+      text-decoration: none;
+      color: #596579;
+      border-radius: 8px;
+      transition: .2s;
+    }
+    .nav-item:hover {
+      background: #edf4ff;
+      transform: translateX(4px);
+    }
+    .active {
+      background: #e8f2ff;
+      color: #1e90ff;
+      font-weight: 600;
+    }
+    .nav-divider {
+      height: 1px;
+      background: #e5e8f1;
+      margin: 15px 0;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      padding: 40px 80px;
+      margin-left: 250px;
+    }
+
+    /* Header */
+    .page-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 35px;
+      margin-top: 10px;
+    }
+
+    .page-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #dce9ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #1e70ff;
+      font-size: 22px;
+    }
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+    }
+    .page-sub {
+      color: #6f7c92;
+      margin-top: 5px;
+    }
+
+    /* Form Card */
+    .form-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      max-width: 700px;
+      margin: auto;
+      margin-top: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #475569;
+      display: block;
+    }
+
+    .input-icon {
+      position: relative;
+    }
+
+    .input-icon i {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      color: #6b7b92;
+      font-size: 15px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 12px 12px 38px;
+      border-radius: 10px;
+      border: 1px solid #dbe2f4;
+      background: #f8faff;
+      font-size: 15px;
+    }
+
+    .form-input:focus {
+      border-color: #1e90ff;
+      outline: none;
+    }
+
+    textarea.form-input {
+      height: 110px;
+      resize: none;
+    }
+
+    /* Buttons */
+    .btn-row {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1e90ff, #12d8e5);
+      border: none;
+      padding: 12px 20px;
+      color: #fff;
+      font-size: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0px 4px 12px rgba(30,144,255,.35);
+    }
+
+    .btn-secondary {
+      background: #e8eef7;
+      border: none;
+      padding: 12px 20px;
+      color: #475569;
+      font-size: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div class="logo-text">EduLink</div>
+    </div>
+
+    <a class="nav-item" href="guardian-dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a class="nav-item active" href="post-request.html"><i class="fa-solid fa-pen-to-square"></i> Post Tuition Request</a>
+    <a class="nav-item" href="browse-tutors.html"><i class="fa-solid fa-magnifying-glass"></i> Browse Tutors</a>
+    <a class="nav-item" href="review-applications.html"><i class="fa-regular fa-file-lines"></i> Review Applications</a>
+
+    <div class="nav-divider"></div>
+
+    <a class="nav-item" href="messages.html"><i class="fa-regular fa-comments"></i> Messages</a>
+    <a class="nav-item" href="payments.html"><i class="fa-regular fa-credit-card"></i> Payments</a>
+    <a class="nav-item" href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+    <a class="nav-item" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- HEADER -->
+    <div class="page-header">
+      <div class="page-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+      <div>
+        <h1 class="page-title">Post a Tuition</h1>
+        <p class="page-sub">Submit your tuition requirements to find your ideal tutor</p>
+      </div>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="form-card">
+
+      <!-- STUDENT NAME -->
+      <div class="form-group">
+        <label class="form-label">Student Name</label>
+        <div class="input-icon">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" class="form-input" placeholder="Enter student name">
+        </div>
+      </div>
+
+      <!-- CLASS -->
+      <div class="form-group">
+        <label class="form-label">Class</label>
+        <div class="input-icon">
+          <i class="fa-solid fa-book"></i>
+          <input type="text" class="form-input" placeholder="Class 5, Class 9, HSC, etc.">
+        </div>
+      </div>
+
+      <!-- SUBJECTS -->
+      <div class="form-group">
+        <label class="form-label">Subjects</label>
+        <div class="input-icon">
+          <i class="fa-solid fa-layer-group"></i>
+          <input type="text" class="form-input" placeholder="Math, English, Physics...">
+        </div>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="form-group">
+        <label class="form-label">Location</label>
+        <div class="input-icon">
+          <i class="fa-solid fa-location-dot"></i>
+          <input type="text" class="form-input" placeholder="Dhanmondi, Mirpur, Gulshan...">
+        </div>
+      </div>
+
+      <!-- EXPECTED SALARY -->
+      <div class="form-group">
+        <label class="form-label">Expected Salary</label>
+        <div class="input-icon">
+          <i class="fa-solid fa-money-bill"></i>
+          <input type="text" class="form-input" placeholder="8000 BDT, 12000 BDT...">
+        </div>
+      </div>
+
+      <!-- DAYS PER WEEK -->
+      <div class="form-group">
+        <label class="form-label">Days per Week</label>
+        <div class="input-icon">
+          <i class="fa-solid fa-calendar-days"></i>
+          <input type="text" class="form-input" placeholder="3 days, 5 days...">
+        </div>
+      </div>
+
+      <!-- TUTOR GENDER -->
+      <div class="form-group">
+        <label class="form-label">Preferred Tutor Gender</label>
+        <div class="input-icon">
+          <i class="fa-solid fa-users"></i>
+          <input type="text" class="form-input" placeholder="Any, Male, Female">
+        </div>
+      </div>
+
+      <!-- DETAILS -->
+      <div class="form-group">
+        <label class="form-label">Additional Details</label>
+        <div class="input-icon">
+          <i class="fa-solid fa-file-lines"></i>
+          <textarea class="form-input" placeholder="Describe additional requirements..."></textarea>
+        </div>
+      </div>
+      <!-- BUTTONS -->
+      <div class="btn-row">
+        <button class="btn-primary">Submit Tuition</button>
+        <button class="btn-secondary" onclick="window.location.href='guardian-dashboard.html'">Cancel</button>
+      </div>
+
+    </div> <!-- END FORM-CARD -->
+
+  </main> <!-- END MAIN -->
+</div> <!-- END LAYOUT -->
+
+<!-- JS FILE -->
+<script src="./js/post-request.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Browse Tutors – EduLink</title>
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background:#f5f8ff; }
+    .layout { display: flex; }
+
+    /* Sidebar */
+    .sidebar { width: 250px; background:#fff; height:100vh; padding:25px 20px; border-right:1px solid #e5e8f1; position:fixed; left:0; top:0; }
+    .logo { display:flex; align-items:center; gap:12px; margin-bottom:35px; }
+    .logo-icon { width:42px;height:42px; border-radius:12px; background:linear-gradient(135deg,#1e90ff,#12d8e5); display:flex;justify-content:center;align-items:center; color:#fff; font-size:20px; }
+    .logo-text { font-size:22px; font-weight:700; color:#1e2a3b; }
+
+    .nav-item { display:flex; align-items:center; gap:12px; padding:12px; margin-bottom:8px; text-decoration:none; color:#596579; border-radius:8px; transition:.2s; }
+    .nav-item.active { background:#e8f2ff; color:#1e90ff; font-weight:600; }
+    .nav-item:hover { background:#f1f6ff; }
+
+    /* Main Area */
+    .main { flex:1; padding:40px 60px; margin-left:260px; }
+    .page-header { display:flex; align-items:center; gap:15px; margin-bottom:25px; }
+    .page-icon { width:48px;height:48px;border-radius:12px;background:#dce9ff;display:flex;justify-content:center;align-items:center; color:#1e70ff; font-size:22px; }
+    .page-title { font-size:28px; font-weight:700; margin:0; }
+    .page-sub { color:#6f7c92; margin-top:5px; }
+
+    /* Filter Bar */
+    .filter-bar { 
+      background:#fff; padding:18px; border-radius:15px; 
+      display:flex; gap:20px; align-items:center;
+      box-shadow:0 3px 8px rgba(0,0,0,0.05); 
+      margin-bottom:30px; 
+      flex-wrap:wrap;
+    }
+
+    .filter-group { display:flex; flex-direction:column; gap:6px; }
+    .filter-label { font-size:14px; color:#6c7a92; }
+
+    .filter-select {
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #d9e2f7;
+      background: #f2f6ff;
+      font-size: 14px;
+      cursor: pointer;
+      min-width: 150px;
+    }
+    .filter-select:focus { outline:none; border-color:#1e90ff; }
+
+    .btn-primary { 
+      background:#1e90ff; border:none; padding:10px 18px; 
+      color:#fff; border-radius:8px; cursor:pointer;
+      box-shadow:0px 4px 12px rgba(30,144,255,.4);
+    }
+
+    /* Tutor Grid */
+    .tutor-grid { 
+      display:grid; 
+      grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); 
+      gap:25px; 
+    }
+
+    .tutor-card { 
+      background:#fff; padding:20px; border-radius:18px; 
+      box-shadow:0 4px 10px rgba(0,0,0,0.06); 
+    }
+
+    .tutor-photo { width:70px; height:70px; object-fit:cover; border-radius:50%; }
+    .tutor-name { font-size:18px; font-weight:700; margin:12px 0 6px; }
+    .tags { display:flex; gap:6px; margin-bottom:10px; flex-wrap: wrap; }
+    .tag { background:#e6edff; padding:5px 10px; border-radius:20px; font-size:12px; color:#265dff; }
+
+    .tutor-class, .tutor-details, .bio, .rating { font-size:14px; color:#5a6a85; margin-bottom:8px; }
+    .actions { display:flex; gap:10px; margin-top:12px; }
+    .btn-gray { background:#f1f4f9; border:none; padding:8px 14px; border-radius:8px; cursor:pointer; }
+  </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+    <div class="logo-text">EduLink</div>
+  </div>
+
+  <!-- MAIN PAGE LINKS -->
+  <a class="nav-item" href="guardian-dashboard.html">
+    <i class="fa-solid fa-gauge"></i>
+    Dashboard
+  </a>
+
+  <a class="nav-item" href="post-request.html">
+    <i class="fa-solid fa-pen-to-square"></i>
+    Post Tuition Request
+  </a>
+
+  <a class="nav-item active" href="browse-tutors.html">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    Browse Tutors
+  </a>
+
+  <a class="nav-item" href="review-applications.html">
+    <i class="fa-regular fa-file-lines"></i>
+    Review Applications
+  </a>
+
+  <div style="height:1px;background:#e5e8f1;margin:15px 0;"></div>
+
+  <a class="nav-item" href="messages.html">
+    <i class="fa-regular fa-comments"></i>
+    Messages
+  </a>
+
+  <a class="nav-item" href="payments.html">
+    <i class="fa-regular fa-credit-card"></i>
+    Payments
+  </a>
+
+  <a class="nav-item" href="settings.html">
+    <i class="fa-solid fa-gear"></i>
+    Settings
+  </a>
+
+  <a class="nav-item" href="logout.html">
+    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    Logout
+  </a>
+</aside>
+
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HEADER -->
+    <div class="page-header">
+      <div class="page-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <div>
+        <h1 class="page-title">Browse Tutors</h1>
+        <p class="page-sub">Find the perfect tutor for your learning needs</p>
+      </div>
+    </div>
+
+    <!-- FILTER BAR -->
+    <section class="filter-bar">
+
+      <div class="filter-group">
+        <span class="filter-label">Subject</span>
+        <select id="subject-filter" class="filter-select">
+          <option value="">All Subjects</option>
+          <option value="Math">Math</option>
+          <option value="Science">Science</option>
+          <option value="Physics">Physics</option>
+          <option value="Higher Math">Higher Math</option>
+          <option value="English">English</option>
+          <option value="IELTS">IELTS</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Biology">Biology</option>
+          <option value="ICT">ICT</option>
+          <option value="Programming">Programming</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Class</span>
+        <select id="class-filter" class="filter-select">
+          <option value="">All Classes</option>
+          <option value="6–10">6–10</option>
+          <option value="9–12">9–12</option>
+          <option value="5–12">5–12</option>
+          <option value="9–Honours">9–Honours</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Location</span>
+        <select id="location-filter" class="filter-select">
+          <option value="">All Locations</option>
+          <option value="Dhanmondi">Dhanmondi</option>
+          <option value="Mirpur">Mirpur</option>
+          <option value="Gulshan">Gulshan</option>
+          <option value="Uttara">Uttara</option>
+          <option value="Badda">Badda</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Gender</span>
+        <select id="gender-filter" class="filter-select">
+          <option value="">Any</option>
+          <option value="Female">Female</option>
+          <option value="Male">Male</option>
+        </select>
+      </div>
+
+      <button id="apply-filters" class="btn-primary">Apply Filters</button>
+
+    </section>
+
+
+    <!-- TUTOR CARDS -->
+    <section class="tutor-grid" id="tutor-grid">
+
+      <!-- Tutor 1 -->
+      <div class="tutor-card" data-subjects="Math Science" data-class="6–10" data-location="Dhanmondi" data-gender="Female">
+        <img src="https://i.pravatar.cc/100?img=5" class="tutor-photo">
+        <h3 class="tutor-name">Afsana Rahman</h3>
+        <div class="tags"><span class="tag">Math</span><span class="tag">Science</span></div>
+        <p class="tutor-class">Teaches: Class 6–10</p>
+        <p class="tutor-details">
+          <i class="fa-solid fa-location-dot"></i> Dhanmondi, Dhaka<br>
+          <i class="fa-solid fa-money-bill"></i> 7000–12000 BDT
+        </p>
+        <p class="rating">⭐⭐⭐⭐⭐ (5.0)</p>
+        <p class="bio">Passionate tutor with 4+ years of experience in teaching Math and Science.</p>
+        <div class="actions"><button class="btn-gray">View Profile</button><button class="btn-primary">Send Application</button></div>
+      </div>
+
+      <!-- Tutor 2 -->
+      <div class="tutor-card" data-subjects="Physics Higher Math" data-class="9–12" data-location="Mirpur" data-gender="Male">
+        <img src="https://i.pravatar.cc/100?img=6" class="tutor-photo">
+        <h3 class="tutor-name">Hasib Mahmud</h3>
+        <div class="tags"><span class="tag">Physics</span><span class="tag">Higher Math</span></div>
+        <p class="tutor-class">Teaches: Class 9–12</p>
+        <p class="tutor-details">
+          <i class="fa-solid fa-location-dot"></i> Mirpur, Dhaka<br>
+          <i class="fa-solid fa-money-bill"></i> 9000–15000 BDT
+        </p>
+        <p class="rating">⭐⭐⭐⭐☆ (4.5)</p>
+        <p class="bio">Expert in Physics and Mathematics with 6+ years of tutoring experience.</p>
+        <div class="actions"><button class="btn-gray">View Profile</button><button class="btn-primary">Send Application</button></div>
+      </div>
+
+      <!-- Tutor 3 -->
+      <div class="tutor-card" data-subjects="English IELTS" data-class="5–12" data-location="Gulshan" data-gender="Female">
+        <img src="https://i.pravatar.cc/100?img=7" class="tutor-photo">
+        <h3 class="tutor-name">Nusrat Jahan</h3>
+        <div class="tags"><span class="tag">English</span><span class="tag">IELTS</span></div>
+        <p class="tutor-class">Teaches: Class 5–12</p>
+        <p class="tutor-details">
+          <i class="fa-solid fa-location-dot"></i> Gulshan, Dhaka<br>
+          <i class="fa-solid fa-money-bill"></i> 12000–20000 BDT
+        </p>
+        <p class="rating">⭐⭐⭐⭐⭐ (5.0)</p>
+        <p class="bio">English specialist with 7+ years of experience guiding students.</p>
+        <div class="actions"><button class="btn-gray">View Profile</button><button class="btn-primary">Send Application</button></div>
+      </div>
+
+      <!-- Tutor 4 -->
+      <div class="tutor-card" data-subjects="Chemistry Biology" data-class="9–12" data-location="Uttara" data-gender="Male">
+        <img src="https://i.pravatar.cc/100?img=8" class="tutor-photo">
+        <h3 class="tutor-name">Rafiul Islam</h3>
+        <div class="tags"><span class="tag">Chemistry</span><span class="tag">Biology</span></div>
+        <p class="tutor-class">Teaches: Class 9–12</p>
+        <p class="tutor-details">
+          <i class="fa-solid fa-location-dot"></i> Uttara, Dhaka<br>
+          <i class="fa-solid fa-money-bill"></i> 8000–13000 BDT
+        </p>
+        <p class="rating">⭐⭐⭐⭐ (4.2)</p>
+        <p class="bio">Experienced science tutor helping students prepare for board exams.</p>
+        <div class="actions"><button class="btn-gray">View Profile</button><button class="btn-primary">Send Application</button></div>
+      </div>
+
+      <!-- Tutor 5 -->
+      <div class="tutor-card" data-subjects="ICT Programming" data-class="9–Honours" data-location="Badda" data-gender="Female">
+        <img src="https://i.pravatar.cc/100?img=9" class="tutor-photo">
+        <h3 class="tutor-name">Tanjina Akter</h3>
+        <div class="tags"><span class="tag">ICT</span><span class="tag">Programming</span></div>
+        <p class="tutor-class">Teaches: Class 9–Honours</p>
+        <p class="tutor-details">
+          <i class="fa-solid fa-location-dot"></i> Badda, Dhaka<br>
+          <i class="fa-solid fa-money-bill"></i> 10000–18000 BDT
+        </p>
+        <p class="rating">⭐⭐⭐⭐⭐ (4.9)</p>
+        <p class="bio">ICT graduate helping students with coding and ICT concepts.</p>
+        <div class="actions"><button class="btn-gray">View Profile</button><button class="btn-primary">Send Application</button></div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<!-- FILTER LOGIC -->
+<script>
+document.getElementById("apply-filters").addEventListener("click", function () {
+
+  let subject = document.getElementById("subject-filter").value.toLowerCase();
+  let classLevel = document.getElementById("class-filter").value.toLowerCase();
+  let location = document.getElementById("location-filter").value.toLowerCase();
+  let gender = document.getElementById("gender-filter").value.toLowerCase();
+
+  let cards = document.querySelectorAll(".tutor-card");
+
+  cards.forEach(card => {
+    let subjects = card.dataset.subjects.toLowerCase();
+    let classText = card.dataset.class.toLowerCase();
+    let loc = card.dataset.location.toLowerCase();
+    let gen = card.dataset.gender.toLowerCase();
+
+    let show =
+      (!subject || subjects.includes(subject)) &&
+      (!classLevel || classText.includes(classLevel)) &&
+      (!location || loc.includes(location)) &&
+      (!gender || gen.includes(gender));
+
+    card.style.display = show ? "block" : "none";
+  });
+
+});
+</script>
+
+  <!-- JS -->
+  <script src="js/browse-tutors.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+

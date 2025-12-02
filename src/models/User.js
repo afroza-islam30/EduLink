@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema(
 
     resetPasswordToken: { type: String, default: null },
     resetPasswordExpires: { type: Date, default: null },
+
     // Tutor fields
     subjectExpertise: String,
     experienceLevel: String,

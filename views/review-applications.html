@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EduLink | Review Applications</title>
+
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    body { margin:0; font-family:'Segoe UI',sans-serif; background:#f5f8ff; }
+    .layout { display:flex; }
+
+    /* ---------------- SIDEBAR ---------------- */
+    .sidebar {
+      width:250px; background:#fff; height:100vh;
+      padding:25px 20px; border-right:1px solid #e5e8f1;
+      position:fixed; top:0; left:0;
+    }
+    .logo { display:flex; align-items:center; gap:12px; margin-bottom:35px; }
+    .logo-icon {
+      width:42px; height:42px; border-radius:12px;
+      background:linear-gradient(135deg,#1e90ff,#12d8e5);
+      color:#fff; display:flex; justify-content:center; align-items:center;
+      font-size:20px;
+    }
+    .logo-text { font-size:22px; font-weight:700; color:#1e2a3b; }
+
+    .nav-item {
+      display:flex; gap:12px; align-items:center;
+      padding:12px; margin-bottom:8px; text-decoration:none;
+      color:#596579; border-radius:8px; transition:.2s;
+    }
+    .nav-item:hover { background:#eef4ff; transform:translateX(4px); }
+    .nav-item.active { background:#e8f2ff; color:#1e90ff; font-weight:600; }
+    .nav-divider { height:1px; background:#e5e8f1; margin:15px 0; }
+
+    /* ---------------- MAIN AREA ---------------- */
+    .main { flex:1; padding:40px 60px; margin-left:260px; }
+
+    .page-header { display:flex; gap:15px; margin-bottom:25px; }
+    .page-icon {
+      width:48px; height:48px; border-radius:12px;
+      background:#dce9ff; color:#1e70ff;
+      display:flex; justify-content:center; align-items:center;
+      font-size:22px;
+    }
+    .page-title { font-size:28px; font-weight:700; margin:0; }
+    .page-sub { color:#6f7c92; margin-top:5px; }
+
+    /* ---------------- FILTER BAR ---------------- */
+    .filter-bar {
+      background:#fff; padding:18px; border-radius:15px;
+      display:flex; gap:20px; align-items:flex-end; flex-wrap:wrap;
+      margin-bottom:30px; box-shadow:0 4px 8px rgba(0,0,0,0.05);
+    }
+    .filter-group { display:flex; flex-direction:column; gap:6px; }
+    .filter-label { font-size:14px; color:#6c7a92; }
+    .filter-select, .filter-input {
+      padding:10px; border-radius:10px; border:1px solid #d9e2f7;
+      background:#f2f6ff; min-width:150px; font-size:14px;
+    }
+    .btn-primary {
+      background:#1e90ff; color:#fff; border:none;
+      padding:10px 18px; border-radius:8px; cursor:pointer;
+    }
+
+    /* ---------------- APPLICATION GRID ---------------- */
+    .app-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+      gap:25px;
+    }
+    .app-card {
+      background:#fff; padding:20px; border-radius:18px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+    .app-top { display:flex; gap:15px; margin-bottom:12px; }
+    .app-photo {
+      width:60px; height:60px; border-radius:50%; object-fit:cover;
+    }
+    .app-name { margin:0; font-size:18px; font-weight:700; }
+    .app-line { color:#6a7790; font-size:14px; margin:4px 0; }
+
+    .status-badge {
+      padding:6px 10px; border-radius:8px; font-size:12px; color:#fff;
+      display:inline-block; margin-top:5px;
+    }
+    .pending { background:#f7b500; }
+    .approved { background:#28c76f; }
+    .rejected { background:#ea5455; }
+    .shortlisted { background:#0090ff; }
+
+    .tags { display:flex; gap:6px; flex-wrap:wrap; margin:8px 0; }
+    .tag {
+      background:#e8efff; padding:4px 10px;
+      border-radius:20px; font-size:12px; color:#1e50ff;
+    }
+
+    .btn-row { display:flex; gap:8px; margin-top:12px; }
+    .btn-small {
+      border:none; padding:8px 12px; border-radius:8px;
+      cursor:pointer; font-size:13px;
+    }
+    .btn-approve { background:#1e90ff; color:#fff; }
+    .btn-reject { background:#ffe5e5; color:#d30000; }
+    .btn-view { background:#f1f4f9; }
+  </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- ---------------- SIDEBAR ---------------- -->
+  <aside class="sidebar">
+
+    <div class="logo">
+      <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div class="logo-text">EduLink</div>
+    </div>
+
+    <a href="guardian-dashboard.html" class="nav-item">
+      <i class="fa-solid fa-gauge"></i> Dashboard
+    </a>
+
+    <a href="post-request.html" class="nav-item">
+      <i class="fa-solid fa-pen-to-square"></i> Post Tuition Request
+    </a>
+
+    <a href="browse-tutors.html" class="nav-item">
+      <i class="fa-solid fa-magnifying-glass"></i> Browse Tutors
+    </a>
+
+    <a href="review-applications.html" class="nav-item active">
+      <i class="fa-regular fa-file-check"></i> Review Applications
+    </a>
+
+    <div class="nav-divider"></div>
+
+    <a href="messages.html" class="nav-item"><i class="fa-regular fa-comments"></i> Messages</a>
+    <a href="payments.html" class="nav-item"><i class="fa-regular fa-credit-card"></i> Payments</a>
+    <a href="settings.html" class="nav-item"><i class="fa-solid fa-gear"></i> Settings</a>
+    <a href="logout.html" class="nav-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+
+  </aside>
+
+  <!-- ---------------- MAIN CONTENT ---------------- -->
+  <main class="main">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="page-icon"><i class="fa-regular fa-file-check"></i></div>
+      <div>
+        <h1 class="page-title">Review Applications</h1>
+        <p class="page-sub">Manage and filter tutor applications</p>
+      </div>
+    </div>
+
+    <!-- FILTER BAR -->
+    <section class="filter-bar">
+      <div class="filter-group">
+        <span class="filter-label">Application Status</span>
+        <select id="status-filter" class="filter-select">
+          <option value="">All</option>
+          <option value="pending">Pending</option>
+          <option value="shortlisted">Shortlisted</option>
+          <option value="approved">Approved</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Tutor Name</span>
+        <input id="search-filter" type="text" class="filter-input" placeholder="Search by name...">
+      </div>
+
+      <button class="btn-primary" onclick="applyFilters()">Apply Filters</button>
+    </section>
+
+    <!-- APPLICATION GRID -->
+    <section class="app-grid" id="app-grid">
+      <!-- JS will inject 10 applications -->
+    </section>
+
+  </main>
+</div>
+
+<!-- ---------- SCRIPT: DYNAMIC APPLICATIONS + FILTERING ---------- -->
+<script>
+const applications = [
+  {name:"Rahim Uddin", subjects:["Math","Physics"], class:"8", salary:"8000", area:"Mirpur", img:"https://i.pravatar.cc/100?img=1", status:"pending"},
+  {name:"Sadia Akter", subjects:["English","Biology"], class:"9", salary:"9000", area:"Banani", img:"https://i.pravatar.cc/100?img=2", status:"shortlisted"},
+  {name:"Alif Hasan", subjects:["Chemistry"], class:"10", salary:"7500", area:"Uttara", img:"https://i.pravatar.cc/100?img=3", status:"rejected"},
+  {name:"Mehjabin Nisa", subjects:["ICT","Higher Math"], class:"9", salary:"10000", area:"Dhanmondi", img:"https://i.pravatar.cc/100?img=4", status:"approved"},
+  {name:"Tanjil Rahman", subjects:["Physics","Math"], class:"11", salary:"11000", area:"Gulshan", img:"https://i.pravatar.cc/100?img=5", status:"pending"},
+  {name:"Sumaiya Haque", subjects:["Science"], class:"6", salary:"6500", area:"Mirpur", img:"https://i.pravatar.cc/100?img=6", status:"shortlisted"},
+  {name:"Jahidul Islam", subjects:["Biology"], class:"10", salary:"8000", area:"Rampura", img:"https://i.pravatar.cc/100?img=7", status:"approved"},
+  {name:"Arif Chowdhury", subjects:["English"], class:"7", salary:"7000", area:"Badda", img:"https://i.pravatar.cc/100?img=8", status:"pending"},
+  {name:"Maliha Noor", subjects:["ICT"], class:"12", salary:"12000", area:"Banani", img:"https://i.pravatar.cc/100?img=9", status:"rejected"},
+  {name:"Rahat Karim", subjects:["Math"], class:"8", salary:"8500", area:"Uttara", img:"https://i.pravatar.cc/100?img=10", status:"shortlisted"}
+];
+
+function renderApps(list){
+  const box = document.getElementById("app-grid");
+  box.innerHTML = "";
+
+  list.forEach(app=>{
+    box.innerHTML += `
+      <div class="app-card">
+        <div class="app-top">
+          <img src="${app.img}" class="app-photo">
+          <div>
+            <h3 class="app-name">${app.name}</h3>
+            <p class="app-line"><b>Class:</b> ${app.class}</p>
+            <p class="app-line"><b>Location:</b> ${app.area}</p>
+            <p class="app-line"><b>Salary:</b> ${app.salary} BDT</p>
+            <div class="tags">${app.subjects.map(s=>`<span class='tag'>${s}</span>`).join("")}</div>
+            <span class="status-badge ${app.status}">${app.status.toUpperCase()}</span>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-small btn-approve">Approve</button>
+          <button class="btn-small btn-reject">Reject</button>
+          <button class="btn-small btn-view">View</button>
+        </div>
+      </div>
+    `;
+  });
+}
+
+renderApps(applications);
+
+function applyFilters(){
+  const status = document.getElementById("status-filter").value.toLowerCase();
+  const search = document.getElementById("search-filter").value.toLowerCase();
+
+  const filtered = applications.filter(app=>{
+    return (status === "" || app.status === status) &&
+           (search === "" || app.name.toLowerCase().includes(search));
+  });
+
+  renderApps(filtered);
+}
+</script>
+
+</body>
+</html>
