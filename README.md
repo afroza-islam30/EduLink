@@ -143,48 +143,10 @@ EduLink/<br>
 
 MongoDB
 
-### Authentication
-
-JWT
-
-Bcrypt
-
 ### Testing
 
 Jest (unit tests for services layer)
 
-
-## API Endpoints Overview
-Auth<br>
-Method	Endpoint	Description<br>
-POST	/auth/register	User registration<br>
-POST	/auth/login	Login<br>
-Tuition<br>
-Method	Endpoint	Description<br>
-POST	/tuitions	Post a new tuition<br>
-GET	/tuitions	List all tuitions<br>
-GET	/tuitions/filter	Filter tuition<br>
-PUT	/tuitions/:id	Update tuition<br>
-DELETE	/tuitions/:id	Delete tuition<br>
-Applications<br>
-Method	Endpoint	Description<br>
-POST	/applications/apply	Teacher applies for tuition<br>
-GET	/applications/:tuitionId	View applicants for a tuition<br>
-POST	/applications/shortlist	Shortlist teacher<br>
-POST	/applications/hire	Hire tutor<br>
-## Running Tests
-
-To run unit tests:
-
-npm test
-
-
-### Sample test file:
-
-tests/<br>
- ├── tuitionService.test.js<br>
- ├── authService.test.js<br>
- └── applicationService.test.js<br>
 
 ## How to Run the Project
 1. Clone the repository
@@ -200,14 +162,14 @@ cd tuition-media
 
 PORT=3000
 JWT_SECRET=your_jwt_secret
-DB_URI=mongodb://localhost:27017/tuition-media
+DB_URI=mongodb://localhost:27017/EduLink
 
 5. Start the server
 npm start
 
 
 ### Visit:
-- http://localhost:3000
+- http://localhost:5000
 
 - Contributing
 
